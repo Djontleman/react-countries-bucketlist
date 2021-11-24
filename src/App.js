@@ -1,12 +1,11 @@
 import './App.css';
-import CountryList from './Components/Countrylist'
-import CountryInfo from './Components/CountryInfo';
+import CountryListContainer from './Containers/CountryListContainer';
 
 function App() {
+
   return (
     <div className="App">
-      <CountryList />
-      <CountryInfo />
+      <CountryListContainer />
     </div>
   );
 }

@@ -1,11 +1,16 @@
 import CountrySelector from "./CountrySelector";
 
-const CountryList = () => {
+const CountryList = ({ countries }) => {
+
+    const countryList = countries.map(country => {
+        return(
+            <CountrySelector name = {country.name.common} />
+        )
+    }) 
+    
     return(
         <div>
-            <CountrySelector name = {"Japan"}/>
-            <CountrySelector name = {"Bosnia"}/>
-            <CountrySelector name = {"China"}/>
+            {countryList}
         </div>
     )
 }
