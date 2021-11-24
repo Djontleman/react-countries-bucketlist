@@ -2,9 +2,13 @@
   text-align: center;
 }
 
-
 .CountryListContainer{
   display: flex;
   justify-content: space-evenly;
 
+}
+
+.CountryList{
+  height: 500px;
+  overflow: scroll;
 }

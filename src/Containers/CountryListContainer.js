@@ -6,28 +6,49 @@ import CountryInfo from "../Components/CountryInfo";
 const CountryListContainer = () => {
 
   const [countries, setCountries] = useState([]);
+  const [countryData, setCountryData] = useState(null);
 
-    // const countries = ["Japan", "Bosnia", "China", "Canada"]
-    
     useEffect(() => {
       fetch("https://restcountries.com/v3.1/all")
         .then(response => response.json())
-        .then(data => setCountries(data))    
+        .then(data => setCountries(data))
+            
     }, [])
     
-    const countryData = {
-      "name": "Japan",
+    const tempCountryData = {
+      "name.common": "Japan",
       "capital": "Tokyo",
       "currencies": "yen",
       "population": 125836021,
       "flags": "flag",
-      "maps": "GoogleMaps"
+      "maps.googleMaps": "GoogleMaps"
+  }
+
+  const updateCountryData = (name) => {
+
+    const selectedCountry = countries.find(country => country.name.common === name)
+    setCountryData(selectedCountry)
+    console.log(selectedCountry)
   }
   
     return (
       <div className="CountryListContainer">
-        <CountryList countries={countries}/>
-        <CountryInfo countryData={countryData}/>
+        {
+          countries.length > 0 ?
+          <>
+            <CountryList countries={countries} onClick={updateCountryData}/>
+
+            {
+              countryData ?
+              <CountryInfo countryData={countryData}/>
+              :
+              <></>
+            }
+            
+          </>
+          :
+          <h4>Loading...</h4>
+        }
       </div>
     );
 }

@@ -1,8 +1,12 @@
-const CountrySelector = ({ name }) => {
+const CountrySelector = ({ name, onClick }) => {
+
+    // const handleClick = (name) => {
+    //     onClick(name)
+    // }
 
     return(
         <div className="CountrySelector">
-            <h2>{name}</h2>
+            <button onClick={() => onClick(name)}>{name}</button>
         </div>
     )
 }
