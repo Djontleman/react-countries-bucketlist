@@ -8,6 +8,7 @@ const CountryListContainer = () => {
 
   const [countries, setCountries] = useState([]);
   const [countryData, setCountryData] = useState(null);
+  const [visitedCountries, setVisitedCountries] = useState([]);
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -23,13 +24,17 @@ const CountryListContainer = () => {
   }
 
   const updateIsVisited = (name, checked) => {
+    let tempVisited = [...visitedCountries];
+
     for (let country of countries) {
       if (country.name.common === name) {
         country.visited = checked;
+        tempVisited.push(country)
       }
     }
     setCountries(countries)
-    console.log(countries)
+    setVisitedCountries(tempVisited)
+    console.log(visitedCountries)
   }
   
   return (
