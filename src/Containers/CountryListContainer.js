@@ -29,12 +29,17 @@ const CountryListContainer = () => {
     for (let country of countries) {
       if (country.name.common === name) {
         country.visited = checked;
-        tempVisited.push(country)
+        
+        if (checked) {
+          tempVisited.push(country)
+        } else {
+          tempVisited = tempVisited.filter(country => country.name.common != name)
+        }
       }
     }
     setCountries(countries)
     setVisitedCountries(tempVisited)
-    console.log(visitedCountries)
+    console.log(tempVisited)
   }
   
   return (
@@ -51,7 +56,7 @@ const CountryListContainer = () => {
               <></>
             }
             
-            <VisitedCountryList countries={countries} onClick={updateCountryData}/>
+            <VisitedCountryList countries={visitedCountries} onClick={updateCountryData}/>
           </>
           :
           <h4>Loading...</h4>
