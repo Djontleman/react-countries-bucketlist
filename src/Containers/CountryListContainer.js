@@ -50,10 +50,18 @@ const CountryListContainer = () => {
             <CountryList countries={countries} onClick={updateCountryData} onCheck={updateIsVisited}/>
 
             {
+               
               countryData ?
-              <CountryInfo countryData={countryData}/>
+
+              <div>
+                <h2>Country Information</h2> 
+                <CountryInfo countryData={countryData}/>
+              </div>
+
               :
+
               <></>
+              
             }
             
             <VisitedCountryList countries={visitedCountries} onClick={updateCountryData}/>

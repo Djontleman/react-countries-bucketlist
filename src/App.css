@@ -1,14 +1,64 @@
 .App {
   text-align: center;
+  background-image: url(https://wallpaperaccess.com/full/233073.jpg);
+  background-size: cover;
+
+  
 }
+
 
 .CountryListContainer{
   display: flex;
   justify-content: space-evenly;
+  
+
 
 }
 
 .CountryList{
   height: 500px;
   overflow: scroll;
+  margin: 50px;
+}
+
+button {
+  background-color: coral;
+  padding: 7px 15px;
+  width: 150px;
+  margin: 3px;
+
+}
+
+h1{
+  padding: 50px;
+  background-color: rgb(210, 233, 233);
+  width: 300px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+
+
+}
+
+.CountryInfo{
+  padding: 7px 15px;
+  width: 300px;
+  margin: 130px 50px;
+  background-color: azure;
+  
+  overflow-wrap: break-word;
+  
+  
+}
+
+header{
+  display: flex;
+  justify-content: center;
+}
+
+h2{
+  background-color: chocolate;
+  display: flex;
+  justify-content: center;
 }
